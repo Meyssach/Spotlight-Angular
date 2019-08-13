@@ -1,0 +1,34 @@
+.aqf-stitch-spotlight {
+	&-infos {
+		&-label,
+		&-subtitle {
+			color: @default-color;
+		}
+		&-title {
+			color: @primary-color;
+		}
+	}
+
+	&-image-wrapper:after{
+		background-color: @primary-color;
+	}
+
+	&-buttons {
+		.aqf-btn-round-primary,
+		.aqf-btn-round-outline-primary {
+			width: 120px;
+			height: 25px;
+			font-size: 13px;
+
+			@media @sm {
+				width: 150px;
+				height: 30px;
+				font-size: 15px;
+			}
+			@media @md {
+				height: 35px;
+				font-size: 17px;
+			}
+		}
+	}
+}

@@ -1,0 +1,218 @@
+@import '../../../../../app/styles/default/variables.less';
+@import '../../../../../app/styles/webkiosk/mixins.less';
+
+@spotlight-background-color: #faf9f8;
+
+:host {
+	display: block;
+	background-color: @spotlight-background-color;
+}
+
+.aqf-stitch-spotlight {
+	display: -ms-grid;
+	display: grid;
+
+	-ms-grid-columns: 1fr;
+	grid-template-columns: 1fr;
+	-ms-grid-rows: 55px 160px 45px;
+	grid-template-rows: 55px 160px 45px;
+
+	margin: auto;
+
+	@media @xs {
+		-ms-grid-columns: 1fr 1fr;
+		grid-template-columns: auto auto;
+		-ms-grid-rows: 1fr auto auto 1fr;
+		grid-template-rows: 1fr auto auto 1fr;
+
+		height: 250px;
+
+		padding-left: 20px;
+		padding-right: 20px;
+		max-width: 440px;
+	}
+
+	@media @xssm {
+		padding-left: 40px;
+		padding-right: 40px;
+		max-width: 648px;
+	}
+	@media @sm {
+		height: 295px;
+
+		padding-left: 60px;
+		padding-right: 60px;
+		max-width: 832px;
+	}
+	@media @md {
+		height: 376px;
+		padding-left: 80px;
+		padding-right: 80px;
+		max-width: 1024px;
+	}
+
+	&-infos {
+		-ms-grid-row: 1;
+		-ms-grid-column: 1;
+		grid-row: 1;
+		grid-column: 1;
+
+		text-align: center;
+		align-self: center;
+		overflow: hidden;
+
+		margin-left: 20px;
+		margin-right: 20px;
+
+		@media @xs {
+			-ms-grid-row: 2;
+			grid-row: 2;
+			-ms-grid-column: 2;
+			grid-column: 2;
+			text-align: left;
+
+			margin-left: 0;
+			margin-right: 0;
+		}
+		&-label {
+			font-size: 8px;
+			font-weight: bold;
+			text-transform: uppercase;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+
+			@media @xs {
+				margin-bottom: 8px;
+			}
+			@media @sm {
+				margin-bottom: 15px;
+				font-size: 12px;
+			}
+			@media @md {
+				font-size: 10px;
+			}
+		}
+
+		&-title {
+			font-size: 17px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+
+			@media @xs {
+				margin-bottom: 8px;
+				.line-clamp(2);
+			}
+
+			@media @sm {
+				margin-bottom: 15px;
+				font-size: 20px;
+			}
+		}
+
+		&-subtitle {
+			font-size: 10px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			@media @xs {
+				margin-bottom: 8px;
+			}
+			@media @sm {
+				margin-bottom: 15px;
+				font-size: 12px;
+			}
+		}
+	}
+
+	&-image {
+		-ms-grid-row: 2;
+		grid-row: 2;
+		-ms-grid-row-span: 1;
+		grid-row-end: span 1;
+		-ms-grid-column: 1;
+		grid-column: 1;
+
+		text-align: center;
+		align-self: center;
+
+		@media @xs {
+			-ms-grid-row: 1;
+			grid-row: 1;
+			-ms-grid-row-span: 4;
+			grid-row-end: span 4;
+			-ms-grid-column: 1;
+			grid-column: 1;
+
+			// TODO Fix image size in js when lazy loading
+			margin-right: 20px;
+			text-align: right;
+		}
+		@media @sm {
+			margin-right: 40px;
+		}
+		@media @md {
+			margin-right: 60px;
+		}
+
+		&-wrapper {
+			display: inline-block;
+			position: relative;
+			cursor: pointer;
+
+			&:after {
+				content: '';
+				position: absolute;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				transform: rotate(-3deg);
+			}
+
+			& > img {
+				z-index: 1;
+				position: relative;
+
+				// TODO Fix image size in js when lazy loading
+				max-height: 150px;
+				@media @xs {
+					max-height: 200px;
+				}
+				@media @xssm {
+					max-height: 230px;
+				}
+				@media @sm {
+					max-height: 256px;
+				}
+				@media @md {
+					max-height: 330px;
+				}
+			}
+		}
+	}
+
+	&-buttons {
+		-ms-grid-row: 3;
+		grid-row: 3;
+		-ms-grid-column: 1;
+		grid-column: 1;
+
+		text-align: center;
+		align-self: center;
+
+		@media @xs {
+			-ms-grid-row: 3;
+			grid-row: 3;
+			-ms-grid-column: 2;
+			grid-column: 2;
+
+			margin-top: 20px;
+			text-align: left;
+		}
+
+		@media @xssm {
+			margin-left: 25px;
+		}
+	}
+}

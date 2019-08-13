@@ -1,0 +1,36 @@
+<div
+	class="aqf-stitch-spotlight"
+	*ngIf="widgetDatas"
+>
+
+	<div class="aqf-stitch-spotlight-infos">
+		<div class="aqf-stitch-spotlight-infos-label">
+			{{ widgetDatas.label }}
+		</div>
+		<div class="aqf-stitch-spotlight-infos-title">
+			{{ widgetDatas.title }}
+		</div>
+		<div class="aqf-stitch-spotlight-infos-subtitle">
+			{{ widgetDatas.subtitle }}
+		</div>
+	</div>
+
+	<div class="aqf-stitch-spotlight-image">
+		<a class="aqf-stitch-spotlight-image-wrapper" (click)="buttonClick(widgetDatas.imageAction)">
+			<img src="{{imageSrc}}"/>
+		</a>
+	</div>
+
+	<div class="aqf-stitch-spotlight-buttons">
+		<button
+			*ngFor="let button of widgetDatas.listButtons"
+			[ngClass]="{
+				'aqf-btn-round-primary': button.filled,
+				'aqf-btn-round-outline-primary': !button.filled
+			}"
+			(click)="buttonClick(button)"
+		>
+			{{ button.buttonTitle }}
+		</button>
+	</div>
+</div>
